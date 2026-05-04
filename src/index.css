@@ -5,6 +5,23 @@ html {
     scroll-behavior: smooth;
 }
 
+@media (min-width: 768px) {
+    .hamburger-btn {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hamburger-btn {
+        display: block !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .mobile-menu {
+        display: none !important;
+    }
+}
 
 @keyframes float {
     0%, 100% { 

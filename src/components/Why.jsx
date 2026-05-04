@@ -27,7 +27,7 @@ export default function WhyChooseUs() {
             color: 'from-purple-500 to-purple-600'
         },
         {
-            icon: 'bx bx-gear',
+            icon: 'bx bx-cog',
             title: 'Spare Part Original',
             description: 'Menggunakan komponen original dan berkualitas tinggi untuk setiap perbaikan',
             color: 'from-teal-500 to-teal-600'

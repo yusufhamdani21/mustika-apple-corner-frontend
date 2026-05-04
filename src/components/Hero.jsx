@@ -1,11 +1,11 @@
 import React from 'react'
 
-export default function Hero() {
+export default function Hero({ openModal }) {
     return (
-        <section className="relative bg-linear-to-br from-blue-50 via-teal-50 to-emerald-50 overflow-hidden" id='service'>
-            <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32">
+        <section className="relative bg-linear-to-br from-blue-50 via-teal-50 to-emerald-50 overflow-hidden" id='hero'>
+            <div className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-16 xl:px-20">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 min-h-[650px] items-center py-12 md:py-0">
-                    
+
                     {/* Brand Info */}
                     <div className='flex flex-col justify-center space-y-6 md:space-y-8'>
                         <div className="space-y-4 md:space-y-6">
@@ -14,18 +14,18 @@ export default function Hero() {
                                 <i className='bx bx-shield-quarter text-xl'></i>
                                 <span>100% Jaminan Garansi dan Uang Kembali</span>
                             </div>
-                            
+
                             {/* Heading */}
-                            <h1 className='text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight'>
+                            <h1 className='text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-800 leading-tight'>
                                 Apple Device Service | <span className='text-green-800'>Bandung & Jatinangor</span>
                             </h1>
-                            
+
                             {/* Operating Hours */}
                             <div className="flex items-center gap-3 text-lg sm:text-xl font-semibold text-gray-700">
                                 <i className='bx bx-time-five text-2xl text-green-800'></i>
                                 <span>Open Daily | 10.00 – 22.00</span>
                             </div>
-                            
+
                             {/* Credentials */}
                             <div className="flex flex-wrap gap-4 text-gray-600">
                                 <div className="flex items-center gap-2">
@@ -42,10 +42,12 @@ export default function Hero() {
                                 </div>
                             </div>
                         </div>
-                        
-                        {/* Button Section */}
+
                         <div className="flex flex-wrap gap-4 pt-2">
-                            <button className="flex items-center gap-2 bg-green-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-900 transition-all transform hover:scale-105 shadow-lg">
+                            <button
+                                onClick={() => openModal('iPhone Repair')}
+                                className="flex items-center gap-2 bg-green-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-900 transition-all transform hover:scale-105 shadow-lg"
+                            >
                                 <i className='bx bx-chat text-xl'></i>
                                 Konsultasi
                             </button>
@@ -71,16 +73,16 @@ export default function Hero() {
                             </div>
                         </div>
                     </div>
-                    
+
                     {/* Hero Image */}
                     <div className="relative flex items-center justify-center md:justify-end">
                         <div className="relative w-full max-w-lg">
-                            <img 
-                                src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800&q=80" 
-                                alt="Apple Devices" 
+                            <img
+                                src="https://images.unsplash.com/photo-1591337676887-a217a6970a8a?w=800&q=80"
+                                alt="Apple Devices"
                                 className="w-full h-auto rounded-2xl shadow-2xl transform hover:scale-105 transition-all duration-500"
                             />
-                            
+
                             {/* Floating Card - Warranty */}
                             <div className="absolute -top-6 -left-6 bg-white p-4 rounded-xl shadow-xl hidden sm:block animate-float">
                                 <div className="flex items-center gap-3">
@@ -93,7 +95,7 @@ export default function Hero() {
                                     </div>
                                 </div>
                             </div>
-                            
+
                             {/* Floating Card - Fast Service */}
                             <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-xl shadow-xl hidden sm:block animate-float-delayed">
                                 <div className="flex items-center gap-3">
