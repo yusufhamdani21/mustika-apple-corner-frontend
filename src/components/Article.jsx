@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 const CATEGORIES = [
     { id: 'all',  label: 'Semua Artikel', wpId: null },
-    { id: 'tips', label: 'Tips & Tricks',  wpId: 3    },
+    { id: 'tips', label: 'Tips & Trik',  wpId: 3    },
     { id: 'repair', label: 'Panduan Repair', wpId: 5 }, // belum ada di WP, tambahkan dulu
     { id: 'news', label: 'Berita Tech',    wpId: 4    },
+    { id: 'review', label: 'Review Produk', wpId: 6 }, // belum ada di WP, tambahkan dulu
 ]
 
 export default function Articles() {
