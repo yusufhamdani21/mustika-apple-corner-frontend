@@ -60,7 +60,7 @@ export default function Hero({ openModal }) {
                         {/* Stats/Trust Indicators */}
                         <div className="grid grid-cols-3 gap-4 pt-4">
                             <div className="text-center">
-                                <p className="text-2xl sm:text-3xl font-bold text-green-800">10K+</p>
+                                <p className="text-2xl sm:text-3xl font-bold text-green-800">877+</p>
                                 <p className="text-sm text-gray-600">Happy Customers</p>
                             </div>
                             <div className="text-center">
@@ -68,7 +68,7 @@ export default function Hero({ openModal }) {
                                 <p className="text-sm text-gray-600">Rating</p>
                             </div>
                             <div className="text-center">
-                                <p className="text-2xl sm:text-3xl font-bold text-green-800">11+</p>
+                                <p className="text-2xl sm:text-3xl font-bold text-green-800">13+</p>
                                 <p className="text-sm text-gray-600">Years Experience</p>
                             </div>
                         </div>
