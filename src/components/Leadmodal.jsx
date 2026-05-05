@@ -155,7 +155,7 @@ export default function LeadModal({ isOpen, onClose, source = 'website', default
                                         name="phone"
                                         value={form.phone}
                                         onChange={handleChange}
-                                        placeholder="812-3456-7890"
+                                        placeholder="'859-7177-7071'"
                                         required
                                         className="w-full pl-12 pr-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none text-sm transition-colors"
                                     />

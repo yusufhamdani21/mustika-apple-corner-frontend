@@ -17,7 +17,7 @@ export default function Hero({ openModal }) {
 
                             {/* Heading */}
                             <h1 className='text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-gray-800 leading-tight'>
-                                Apple Device Service | <span className='text-green-800'>Bandung & Jatinangor</span>
+                                Service Macbook, iPhone, dan iPad | <span className='text-green-800'>Bandung & Jatinangor</span>
                             </h1>
 
                             {/* Operating Hours */}
@@ -103,8 +103,8 @@ export default function Hero({ openModal }) {
                                         <i className='bx bx-timer text-2xl text-orange-600'></i>
                                     </div>
                                     <div>
-                                        <p className="font-bold text-gray-800">1-3 Hari</p>
-                                        <p className="text-sm text-gray-600">Pengerjaan</p>
+                                        <p className="font-bold text-gray-800">Pengerjaan</p>
+                                        <p className="text-sm text-gray-600">Bisa Ditunggu</p>
                                     </div>
                                 </div>
                             </div>

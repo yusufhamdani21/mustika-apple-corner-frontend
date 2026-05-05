@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import logo from '../assets/mustika-logo.png'
 
 export default function Footer({ openModal }) {
     const quickLinks = [
@@ -21,17 +22,17 @@ export default function Footer({ openModal }) {
     const locations = [
         {
             city: 'Bandung',
-            address: 'Jl. Raya Bandung No. 123, Bandung',
-            phone: '+62 812-3456-7890',
+            address: 'Jl. H. Kurdi 1 No.12 RT05, RW.01, Karasak, Astanaanyar, Bandung City, West Java 40243',
+            phone: '+62 85971777071',
             hours: '10:00 - 22:00',
-            mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.798947944332!2d107.60981731431642!3d-6.914744869559904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e6398252477f%3A0x146a1f93d3e815b2!2sBandung%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid',
+            mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.550200512229!2d107.60687349999999!3d-6.944233700000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e90aec355931%3A0xb5eb0ff04ffdaa4d!2sMAC%202.0%20Bandung%20%7C%20Service%20iPhone%20iPad%20Macbook%20iWatch!5e0!3m2!1sen!2sid!4v1777975681434!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
         },
         {
             city: 'Jatinangor',
-            address: 'Jl. Raya Jatinangor No. 456, Sumedang',
-            phone: '+62 812-3456-7891',
+            address: 'Jl. Ir. Soekarno No.181, depan kantor, Kec. Jatinangor, Kabupaten Sumedang, Jawa Barat 45363',
+            phone: '+62 8989200075',
             hours: '10:00 - 22:00',
-            mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.2123456789!2d107.77123451431642!3d-6.928123469559904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c2b5e3456789%3A0x123456789abcdef!2sJatinangor%2C%20Sumedang%20Regency%2C%20West%20Java!5e0!3m2!1sen!2sid!4v1234567890123!5m2!1sen!2sid',
+            mapSrc: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.6499096653474!2d107.7766783!3d-6.932380500000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68c4a700384175%3A0x8867ae46113b61f6!2sMAC%20Jatinangor%20%7C%20Service%20iPhone%20iPad%20Macbook%20%7C%20Android!5e0!3m2!1sen!2sid!4v1777975765753!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade',
         },
     ]
 
@@ -42,7 +43,7 @@ export default function Footer({ openModal }) {
         if (!email) return
         setSubStatus('loading')
         try {
-            const res  = await fetch('http://localhost/wp-json/mustika/v1/subscribe', {
+            const res  = await fetch('https://mustikaapplecorner.com/wp-json/mustika/v1/subscribe', {
                 method:  'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body:    JSON.stringify({ email }),
@@ -119,7 +120,7 @@ export default function Footer({ openModal }) {
                         <div className="lg:col-span-1">
                             <div className="flex items-center gap-3 mb-6">
                                 <img
-                                    src="/src/assets/mustika-logo.png"
+                                    src={logo}
                                     alt="Mustika Apple Corner"
                                     className="w-12 h-12 rounded-full object-cover"
                                 />
@@ -131,8 +132,8 @@ export default function Footer({ openModal }) {
                             <div className="flex gap-3">
                                 {[
                                     { icon: 'fab fa-facebook',  href: '#' },
-                                    { icon: 'fab fa-instagram', href: '#' },
-                                    { icon: 'fab fa-whatsapp',  href: '#' },
+                                    { icon: 'fab fa-instagram', href: 'https://www.instagram.com/macstore.id_/' },
+                                    { icon: 'fab fa-whatsapp',  href: 'https://wa.me/6285971777071' },
                                     { icon: 'fab fa-tiktok',    href: '#' },
                                 ].map(({ icon, href }) => (
                                     <a key={icon} href={href}
