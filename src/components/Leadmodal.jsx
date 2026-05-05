@@ -11,7 +11,7 @@ const SERVICES = [
 ]
 
 // const WP_API = import.meta.env.VITE_API_URL?.replace('/posts', '') || 'http://localhost/wp-json'
-const WP_API = 'http://localhost/wp-json'
+const WP_API = 'http://mustikaapplecorner.com/wp-json'
 
 export default function LeadModal({ isOpen, onClose, source = 'website', defaultService = '' }) {
     const [form, setForm] = useState({

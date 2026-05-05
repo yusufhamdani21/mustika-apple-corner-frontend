@@ -21,7 +21,7 @@ export default function Articles() {
 
                 const cat = CATEGORIES.find(c => c.id === selectedCategory)
                 const categoryParam = cat?.wpId ? `&categories=${cat.wpId}` : ''
-                const url = `http://localhost/wp-json/wp/v2/posts?_embed&per_page=6${categoryParam}`
+                const url = `http://mustikaapplecorner.com/wp-json/wp/v2/posts?_embed&per_page=6${categoryParam}`
 
                 const response = await fetch(url)
 
