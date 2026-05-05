@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-// ── DATA ─────────────────────────────────────────────────────
+// ── IPHONE DATA ───────────────────────────────────────────────
 
 const IPHONE_SERIES = [
     'Ip 6', 'Ip 6+', 'Ip 6s', 'Ip 6s+',
@@ -14,7 +14,6 @@ const IPHONE_SERIES = [
     'Ip 15', 'Ip 15 Plus', 'Ip 15 Pro', 'Ip 15 Pro Max',
 ]
 
-// Part biasa — per seri
 const IPHONE_PARTS = {
     LCD: {
         'Ip 6': '225K', 'Ip 6+': '250K', 'Ip 6s': '250K', 'Ip 6s+': '250K',
@@ -118,7 +117,6 @@ const IPHONE_PARTS = {
     },
 }
 
-// Part mesin — format berbeda
 const IPHONE_MESIN = [
     {
         nama: 'IC Power / Wifi / Baseband',
@@ -181,21 +179,267 @@ const IPHONE_MESIN = [
     },
 ]
 
-// Device lain — placeholder
-const OTHER_DEVICES = [
+const SERIES_GROUPS = [
+    { label: 'Ip 6 Series', series: ['Ip 6', 'Ip 6+', 'Ip 6s', 'Ip 6s+'] },
+    { label: 'Ip 7 Series', series: ['Ip 7', 'Ip 7+'] },
+    { label: 'Ip 8 Series', series: ['Ip 8', 'Ip 8+'] },
+    { label: 'Ip X Series', series: ['Ip X', 'Ip XS', 'Ip XS Max', 'Ip XR', 'Ip SE 2'] },
+    { label: 'Ip 11 Series', series: ['Ip 11', 'Ip 11 Pro', 'Ip 11 Pro Max'] },
+    { label: 'Ip 12 Series', series: ['Ip 12', 'Ip 12 Pro', 'Ip 12 Pro Max', 'Ip 12 Mini'] },
+    { label: 'Ip 13 Series', series: ['Ip 13', 'Ip 13 Pro', 'Ip 13 Pro Max', 'Ip 13 Mini'] },
+    { label: 'Ip 14 Series', series: ['Ip 14', 'Ip 14 Plus', 'Ip 14 Pro', 'Ip 14 Pro Max'] },
+    { label: 'Ip 15 Series', series: ['Ip 15', 'Ip 15 Plus', 'Ip 15 Pro', 'Ip 15 Pro Max'] },
+]
+
+const PART_TABS = Object.keys(IPHONE_PARTS)
+
+// ── MACBOOK DATA ──────────────────────────────────────────────
+
+const MACBOOK_MODELS = [
     {
-        id: 'macbook',
-        icon: 'bx bx-laptop',
-        label: 'MacBook',
-        services: [
-            { nama: 'Ganti Keyboard', harga: 'Hubungi Kami' },
-            { nama: 'Ganti Baterai', harga: 'Hubungi Kami' },
-            { nama: 'Upgrade SSD', harga: 'Hubungi Kami' },
-            { nama: 'Ganti Touchpad', harga: 'Hubungi Kami' },
-            { nama: 'Install Ulang macOS', harga: 'Hubungi Kami' },
-            { nama: 'Repair Motherboard', harga: 'Hubungi Kami' },
+        model: 'MacBook Pro 13" (2008-2012) A1278',
+        parts: [
+            { nama: 'LCD Panel', harga: '2.700K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+            { nama: 'Keyboard', harga: '500K' },
+            { nama: 'Trackpad', harga: '550K' },
+            { nama: 'Speaker', harga: '450K' },
+            { nama: 'Flex', harga: 'Hubungi Kami' },
         ],
     },
+    {
+        model: 'MacBook Pro 15" (2009-2012) A1286',
+        parts: [
+            { nama: 'LCD Panel', harga: '3.100K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+            { nama: 'Keyboard', harga: '500K' },
+            { nama: 'Trackpad', harga: '550K' },
+            { nama: 'Speaker', harga: '700K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 15" (2012-2015) A1398',
+        parts: [
+            { nama: 'LCD', harga: 'Hubungi Kami' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+            { nama: 'Keyboard', harga: 'Hubungi Kami' },
+            { nama: 'Speaker', harga: 'Hubungi Kami' },
+            { nama: 'Konektor Charger', harga: 'Hubungi Kami' },
+            { nama: 'Fan', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 11" (2013-2015) A1495/A1465/A1370',
+        parts: [
+            { nama: 'LCD Fullset', harga: '3.100K' },
+            { nama: 'LCD Panel Only', harga: '2.500K' },
+            { nama: 'Baterai', harga: '850K' },
+            { nama: 'Keyboard', harga: '780K' },
+            { nama: 'Trackpad', harga: '500K' },
+            { nama: 'Speaker', harga: 'Hubungi Kami' },
+            { nama: 'Fan', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" (2013-2015) A1502/A1425',
+        parts: [
+            { nama: 'LCD', harga: '3.800K' },
+            { nama: 'Baterai', harga: '1.000K' },
+            { nama: 'Keyboard', harga: '750K' },
+            { nama: 'Trackpad', harga: '650K' },
+            { nama: 'Speaker', harga: 'Hubungi Kami' },
+            { nama: 'Konektor Charger', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" (2015-2017) A1466/A1369',
+        parts: [
+            { nama: 'LCD', harga: '3.500K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+            { nama: 'Keyboard', harga: 'Hubungi Kami' },
+            { nama: 'Trackpad', harga: 'Hubungi Kami' },
+            { nama: 'Speaker', harga: 'Hubungi Kami' },
+            { nama: 'Fan', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" (2016-2017) A1708/A1989/A1706',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '3.500K' },
+            { nama: 'LCD Fullset', harga: '4.300K' },
+            { nama: 'Baterai', harga: '1.200K' },
+            { nama: 'Keyboard', harga: '900K' },
+            { nama: 'Trackpad', harga: '850K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" Touchbar (2016-2019) A1989/A1706/A1708',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '3.500K' },
+            { nama: 'LCD Fullset', harga: '4.300K' },
+            { nama: 'Baterai', harga: '1.200K' },
+            { nama: 'Keyboard', harga: '900K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 15" (2017) A1707',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '8.000K' },
+            { nama: 'LCD Fullset', harga: '9.500K' },
+            { nama: 'Baterai', harga: '1.400K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 15" Touch Bar (2018-2019) A1990/A1953',
+        parts: [
+            { nama: 'LCD', harga: '8.000K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" (2020) A2289',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '3.800K' },
+            { nama: 'LCD Fullset', harga: '4.700K' },
+            { nama: 'Baterai', harga: '1.200K' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" (2018-2020) A1932/A1965',
+        parts: [
+            { nama: 'LCD Fullset', harga: '4.600K' },
+            { nama: 'Baterai', harga: '1.200K' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" (2020) A2179',
+        parts: [
+            { nama: 'LCD', harga: '4.600K' },
+            { nama: 'Baterai', harga: '1.400K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" (2019) A2159/A2251',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '3.800K' },
+            { nama: 'LCD Fullset', harga: '4.500K' },
+            { nama: 'Baterai', harga: '1.400K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 16" (2019-2020) A2141',
+        parts: [
+            { nama: 'LCD', harga: 'Hubungi Kami' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" M1 (2020) A2337',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '4.300K' },
+            { nama: 'LCD Fullset', harga: '5.400K' },
+            { nama: 'Baterai', harga: '1.400K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 13" M1-M2 (2020-2021) A2338',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '4.400K' },
+            { nama: 'LCD Fullset', harga: '5.500K' },
+            { nama: 'Baterai', harga: '1.400K' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" M2 (2022) A2681',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '5.000K' },
+            { nama: 'LCD Fullset', harga: '6.500K' },
+            { nama: 'Baterai', harga: '1.500K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 14" M1 Pro/Max (2022) A2442',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '8.500K' },
+            { nama: 'Baterai', harga: '1.750K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 16" M2 Max (2023) A2780',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '9.000K' },
+            { nama: 'LCD Fullset', harga: '12.500K' },
+            { nama: 'Baterai', harga: '2.000K' },
+        ],
+    },
+    {
+        model: 'MacBook Air 15" M2 (2023) A2941',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '5.500K' },
+            { nama: 'LCD Fullset', harga: '8.500K' },
+            { nama: 'Baterai', harga: '2.000K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 16" M2 Pro (2023) A2779',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '9.000K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 15" M3 (2023) A3114',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '6.000K' },
+            { nama: 'LCD Fullset', harga: '8.000K' },
+            { nama: 'Baterai', harga: '2.200K' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" M3 (2023) A3113',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '4.800K' },
+            { nama: 'LCD Fullset', harga: '6.800K' },
+            { nama: 'Baterai', harga: '1.500K' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 14" M3 (2023) A2992',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '8.500K' },
+            { nama: 'LCD Fullset', harga: '10.500K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 14" M3 (2023) A2918',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '8.500K' },
+            { nama: 'LCD Fullset', harga: '10.000K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Pro 16" M4 (2024) A3186',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '8.500K' },
+            { nama: 'LCD Fullset', harga: '13.500K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+    {
+        model: 'MacBook Air 13" M4 (2024) A3240',
+        parts: [
+            { nama: 'LCD Panel Only', harga: '6.500K' },
+            { nama: 'LCD Fullset', harga: '8.000K' },
+            { nama: 'Baterai', harga: 'Hubungi Kami' },
+        ],
+    },
+]
+
+// ── OTHER DEVICES ─────────────────────────────────────────────
+
+const OTHER_DEVICES = [
     {
         id: 'ipad',
         icon: 'bx bx-tab',
@@ -220,35 +464,25 @@ const OTHER_DEVICES = [
     },
 ]
 
-const PART_TABS = Object.keys(IPHONE_PARTS)
-const MESIN_TABS = IPHONE_MESIN.map(m => m.nama)
-
-// Grup seri untuk navigasi
-const SERIES_GROUPS = [
-    { label: 'Ip 6 Series', series: ['Ip 6', 'Ip 6+', 'Ip 6s', 'Ip 6s+'] },
-    { label: 'Ip 7 Series', series: ['Ip 7', 'Ip 7+'] },
-    { label: 'Ip 8 Series', series: ['Ip 8', 'Ip 8+'] },
-    { label: 'Ip X Series', series: ['Ip X', 'Ip XS', 'Ip XS Max', 'Ip XR', 'Ip SE 2'] },
-    { label: 'Ip 11 Series', series: ['Ip 11', 'Ip 11 Pro', 'Ip 11 Pro Max'] },
-    { label: 'Ip 12 Series', series: ['Ip 12', 'Ip 12 Pro', 'Ip 12 Pro Max', 'Ip 12 Mini'] },
-    { label: 'Ip 13 Series', series: ['Ip 13', 'Ip 13 Pro', 'Ip 13 Pro Max', 'Ip 13 Mini'] },
-    { label: 'Ip 14 Series', series: ['Ip 14', 'Ip 14 Plus', 'Ip 14 Pro', 'Ip 14 Pro Max'] },
-    { label: 'Ip 15 Series', series: ['Ip 15', 'Ip 15 Plus', 'Ip 15 Pro', 'Ip 15 Pro Max'] },
-]
-
 // ── COMPONENT ─────────────────────────────────────────────────
 
 export default function Services({ openModal }) {
     const [activeDevice, setActiveDevice] = useState('iphone')
     const [activeGroup, setActiveGroup] = useState(0)
     const [activePart, setActivePart] = useState('LCD')
-    const [activeTab, setActiveTab] = useState('part') // 'part' | 'mesin'
+    const [activeTab, setActiveTab] = useState('part')
     const [activeMesin, setActiveMesin] = useState(IPHONE_MESIN[0].nama)
+    const [activeMacbook, setActiveMacbook] = useState(0)
+    const [macSearch, setMacSearch] = useState('')
 
     const currentGroup = SERIES_GROUPS[activeGroup]
     const currentSeries = currentGroup.series
     const currentPart = IPHONE_PARTS[activePart]
     const currentMesin = IPHONE_MESIN.find(m => m.nama === activeMesin)
+
+    const filteredMacbooks = MACBOOK_MODELS.filter(m =>
+        m.model.toLowerCase().includes(macSearch.toLowerCase())
+    )
 
     return (
         <section className="bg-gray-50 py-16 md:py-24" id="services">
@@ -265,11 +499,13 @@ export default function Services({ openModal }) {
                     </p>
                 </div>
 
-                {/* ── Device Tabs ── */}
+                {/* Device Tabs */}
                 <div className="flex flex-wrap justify-center gap-3 mb-10">
                     {[
                         { id: 'iphone', icon: 'bx bx-mobile-alt', label: 'iPhone' },
-                        ...OTHER_DEVICES.map(d => ({ id: d.id, icon: d.icon, label: d.label })),
+                        { id: 'macbook', icon: 'bx bx-laptop', label: 'MacBook' },
+                        { id: 'ipad', icon: 'bx bx-tab', label: 'iPad' },
+                        { id: 'applewatch', icon: 'bx bx-time-five', label: 'Apple Watch' },
                     ].map(d => (
                         <button
                             key={d.id}
@@ -288,8 +524,6 @@ export default function Services({ openModal }) {
                 {/* ── iPhone Panel ── */}
                 {activeDevice === 'iphone' && (
                     <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-
-                        {/* Header card */}
                         <div className="bg-gradient-to-r from-green-700 to-emerald-600 px-6 py-5 flex items-center gap-4">
                             <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
                                 <i className="bx bx-mobile-alt text-2xl text-white"></i>
@@ -300,77 +534,50 @@ export default function Services({ openModal }) {
                             </div>
                         </div>
 
-                        {/* Part / Mesin toggle */}
                         <div className="flex border-b border-gray-100">
-                            <button
-                                onClick={() => setActiveTab('part')}
-                                className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'part' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}
-                            >
+                            <button onClick={() => setActiveTab('part')}
+                                className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'part' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}>
                                 🔧 Ganti Part
                             </button>
-                            <button
-                                onClick={() => setActiveTab('mesin')}
-                                className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'mesin' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}
-                            >
+                            <button onClick={() => setActiveTab('mesin')}
+                                className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'mesin' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}>
                                 ⚙️ Servis Mesin / IC
                             </button>
                         </div>
 
-                        {/* ── Tab: Ganti Part ── */}
                         {activeTab === 'part' && (
                             <div className="p-6">
-                                {/* Series group tabs */}
                                 <div className="mb-5">
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Pilih Seri</p>
                                     <div className="flex flex-wrap gap-2">
                                         {SERIES_GROUPS.map((g, i) => (
-                                            <button
-                                                key={g.label}
-                                                onClick={() => setActiveGroup(i)}
-                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeGroup === i
-                                                        ? 'bg-green-800 text-white'
-                                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                                    }`}
-                                            >
+                                            <button key={g.label} onClick={() => setActiveGroup(i)}
+                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeGroup === i ? 'bg-green-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {g.label}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
-
-                                {/* Part tabs */}
                                 <div className="mb-5">
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Pilih Part</p>
                                     <div className="flex flex-wrap gap-2">
                                         {PART_TABS.map(p => (
-                                            <button
-                                                key={p}
-                                                onClick={() => setActivePart(p)}
-                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activePart === p
-                                                        ? 'bg-emerald-600 text-white'
-                                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                                    }`}
-                                            >
+                                            <button key={p} onClick={() => setActivePart(p)}
+                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activePart === p ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {p}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
-
-                                {/* Price list */}
                                 <div className="divide-y divide-gray-50 rounded-xl overflow-hidden border border-gray-100">
                                     <div className="grid grid-cols-2 bg-green-800 text-white text-xs font-bold px-4 py-2.5 uppercase tracking-wider">
-                                        <span>Seri</span>
-                                        <span className="text-right">Harga</span>
+                                        <span>Seri</span><span className="text-right">Harga</span>
                                     </div>
                                     {currentSeries.map(seri => {
                                         const harga = currentPart[seri] || '-'
                                         const unavailable = harga === '-'
                                         return (
-                                            <div
-                                                key={seri}
-                                                className={`grid grid-cols-2 items-center px-4 py-3 transition-colors ${unavailable ? 'bg-gray-50' : 'hover:bg-green-50'}`}
-                                            >
+                                            <div key={seri} className={`grid grid-cols-2 items-center px-4 py-3 transition-colors ${unavailable ? 'bg-gray-50' : 'hover:bg-green-50'}`}>
                                                 <span className={`text-sm font-medium ${unavailable ? 'text-gray-400' : 'text-gray-700'}`}>{seri}</span>
                                                 <span className={`text-right text-sm font-bold ${unavailable ? 'text-gray-300' : 'text-green-700'}`}>
                                                     {unavailable ? 'Tidak tersedia' : `Rp ${harga}`}
@@ -383,31 +590,20 @@ export default function Services({ openModal }) {
                             </div>
                         )}
 
-                        {/* ── Tab: Servis Mesin ── */}
                         {activeTab === 'mesin' && (
                             <div className="p-6">
-                                {/* Mesin type tabs */}
                                 <div className="mb-5">
                                     <p className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Pilih Jenis Servis</p>
                                     <div className="flex flex-wrap gap-2">
                                         {IPHONE_MESIN.map(m => (
-                                            <button
-                                                key={m.nama}
-                                                onClick={() => setActiveMesin(m.nama)}
-                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeMesin === m.nama
-                                                        ? 'bg-green-800 text-white'
-                                                        : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
-                                                    }`}
-                                            >
+                                            <button key={m.nama} onClick={() => setActiveMesin(m.nama)}
+                                                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeMesin === m.nama ? 'bg-green-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {m.nama.length > 30 ? m.nama.substring(0, 28) + '...' : m.nama}
                                             </button>
                                         ))}
                                     </div>
                                 </div>
-
                                 <h4 className="font-bold text-gray-800 mb-4 text-sm">{currentMesin.nama}</h4>
-
-                                {/* Nandflash — format berbeda */}
                                 {currentMesin.isNandflash ? (
                                     <div className="space-y-3">
                                         {currentMesin.data.map(row => (
@@ -425,11 +621,9 @@ export default function Services({ openModal }) {
                                         ))}
                                     </div>
                                 ) : (
-                                    /* Format biasa */
                                     <div className="divide-y divide-gray-50 rounded-xl overflow-hidden border border-gray-100">
                                         <div className="grid grid-cols-2 bg-green-800 text-white text-xs font-bold px-4 py-2.5 uppercase tracking-wider">
-                                            <span>Seri</span>
-                                            <span className="text-right">Harga</span>
+                                            <span>Seri</span><span className="text-right">Harga</span>
                                         </div>
                                         {currentMesin.data.map(row => (
                                             <div key={row.seri} className="grid grid-cols-2 items-center px-4 py-3 hover:bg-green-50 transition-colors">
@@ -439,19 +633,13 @@ export default function Services({ openModal }) {
                                         ))}
                                     </div>
                                 )}
-
-                                {currentMesin.note && (
-                                    <p className="text-xs text-gray-400 mt-3 italic">{currentMesin.note}</p>
-                                )}
+                                {currentMesin.note && <p className="text-xs text-gray-400 mt-3 italic">{currentMesin.note}</p>}
                             </div>
                         )}
 
-                        {/* CTA */}
                         <div className="px-6 pb-6">
-                            <button
-                                onClick={() => openModal('iPhone Repair')}
-                                className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all"
-                            >
+                            <button onClick={() => openModal('iPhone Repair')}
+                                className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
                                 <i className="bx bx-chat text-xl"></i>
                                 Konsultasi Gratis via WhatsApp
                             </button>
@@ -459,8 +647,85 @@ export default function Services({ openModal }) {
                     </div>
                 )}
 
-                {/* ── Other Devices Panel ── */}
-                {activeDevice !== 'iphone' && (() => {
+                {/* ── MacBook Panel ── */}
+                {activeDevice === 'macbook' && (
+                    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
+                        <div className="bg-gradient-to-r from-green-700 to-emerald-600 px-6 py-5 flex items-center gap-4">
+                            <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                                <i className="bx bx-laptop text-2xl text-white"></i>
+                            </div>
+                            <div>
+                                <h3 className="text-xl font-bold text-white">MacBook Service</h3>
+                                <p className="text-green-100 text-sm mt-0.5">Pilih model MacBook kamu</p>
+                            </div>
+                        </div>
+
+                        <div className="p-6">
+                            {/* Search */}
+                            <div className="relative mb-5">
+                                <i className="bx bx-search absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
+                                <input
+                                    type="text"
+                                    placeholder="Cari model MacBook..."
+                                    value={macSearch}
+                                    onChange={e => setMacSearch(e.target.value)}
+                                    className="w-full pl-10 pr-4 py-2.5 rounded-xl border-2 border-gray-200 focus:border-green-500 focus:outline-none text-sm"
+                                />
+                            </div>
+
+                            <div className="grid md:grid-cols-2 gap-4">
+                                {/* Model list */}
+                                <div className="space-y-1.5 max-h-96 overflow-y-auto pr-1">
+                                    {filteredMacbooks.map((m, i) => (
+                                        <button
+                                            key={m.model}
+                                            onClick={() => setActiveMacbook(MACBOOK_MODELS.indexOf(m))}
+                                            className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeMacbook === MACBOOK_MODELS.indexOf(m)
+                                                    ? 'bg-green-800 text-white'
+                                                    : 'bg-gray-50 text-gray-700 hover:bg-green-50'
+                                                }`}
+                                        >
+                                            {m.model}
+                                        </button>
+                                    ))}
+                                    {filteredMacbooks.length === 0 && (
+                                        <p className="text-center text-gray-400 text-sm py-8">Model tidak ditemukan</p>
+                                    )}
+                                </div>
+
+                                {/* Parts detail */}
+                                <div>
+                                    <h4 className="font-bold text-gray-800 text-sm mb-3">{MACBOOK_MODELS[activeMacbook].model}</h4>
+                                    <div className="divide-y divide-gray-50 rounded-xl overflow-hidden border border-gray-100">
+                                        <div className="grid grid-cols-2 bg-green-800 text-white text-xs font-bold px-4 py-2.5 uppercase tracking-wider">
+                                            <span>Part</span><span className="text-right">Harga</span>
+                                        </div>
+                                        {MACBOOK_MODELS[activeMacbook].parts.map(p => (
+                                            <div key={p.nama} className="grid grid-cols-2 items-center px-4 py-3 hover:bg-green-50 transition-colors">
+                                                <span className="text-sm font-medium text-gray-700">{p.nama}</span>
+                                                <span className={`text-right text-sm font-bold ${p.harga === 'Hubungi Kami' ? 'text-green-700' : 'text-gray-800'}`}>
+                                                    {p.harga === 'Hubungi Kami' ? p.harga : `Rp ${p.harga}`}
+                                                </span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <p className="text-xs text-gray-400 mt-3">* Harga belum termasuk ongkos jasa. Konsultasi gratis sebelum pengerjaan.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="px-6 pb-6">
+                            <button onClick={() => openModal('MacBook Service')}
+                                className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
+                                <i className="bx bx-chat text-xl"></i>
+                                Konsultasi Gratis via WhatsApp
+                            </button>
+                        </div>
+                    </div>
+                )}
+
+                {/* ── iPad & Apple Watch Panel ── */}
+                {(activeDevice === 'ipad' || activeDevice === 'applewatch') && (() => {
                     const device = OTHER_DEVICES.find(d => d.id === activeDevice)
                     return (
                         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden max-w-2xl mx-auto">
@@ -486,10 +751,8 @@ export default function Services({ openModal }) {
                             </div>
                             <div className="p-6">
                                 <p className="text-xs text-gray-400 mb-4">* Harga tergantung kondisi device. Konsultasi gratis sebelum pengerjaan.</p>
-                                <button
-                                    onClick={() => openModal(device.label + ' Service')}
-                                    className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all"
-                                >
+                                <button onClick={() => openModal(device.label + ' Service')}
+                                    className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
                                     <i className="bx bx-chat text-xl"></i>
                                     Konsultasi Gratis via WhatsApp
                                 </button>
