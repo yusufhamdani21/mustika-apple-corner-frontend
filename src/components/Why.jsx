@@ -43,7 +43,7 @@ export default function WhyChooseUs() {
     return (
         <section className="py-16 md:py-24 px-4 sm:px-6 md:px-8 lg:px-16 xl:px-32 bg-white" id='about'>
             <div className="max-w-7xl mx-auto">
-                
+
                 {/* Section Header */}
                 <div className="text-center mb-12 md:mb-16">
                     <p className="text-green-800 font-semibold text-sm md:text-base uppercase tracking-wide mb-3">
@@ -60,7 +60,7 @@ export default function WhyChooseUs() {
                 {/* Features Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                     {features.map((feature, index) => (
-                        <div 
+                        <div
                             key={index}
                             className="group bg-linear-to-br from-gray-50 to-white p-6 md:p-8 rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2"
                         >
@@ -82,9 +82,9 @@ export default function WhyChooseUs() {
 
                 {/* Stats Section */}
                 <div className="mt-16 md:mt-20 bg-linear-to-br from-green-800 to-emerald-700 rounded-3xl p-8 md:p-12 text-white">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+                    <div className="grid grid-cols-3 gap-6 md:gap-8">
                         <div className="text-center">
-                            <p className="text-4xl md:text-5xl font-bold mb-2">10K+</p>
+                            <p className="text-4xl md:text-5xl font-bold mb-2">877+</p>
                             <p className="text-green-100 text-sm md:text-base">Pelanggan Puas</p>
                         </div>
                         <div className="text-center">
@@ -92,12 +92,8 @@ export default function WhyChooseUs() {
                             <p className="text-green-100 text-sm md:text-base">Rating Pelanggan</p>
                         </div>
                         <div className="text-center">
-                            <p className="text-4xl md:text-5xl font-bold mb-2">11+</p>
+                            <p className="text-4xl md:text-5xl font-bold mb-2">13+</p>
                             <p className="text-green-100 text-sm md:text-base">Tahun Berpengalaman</p>
-                        </div>
-                        <div className="text-center">
-                            <p className="text-4xl md:text-5xl font-bold mb-2">98%</p>
-                            <p className="text-green-100 text-sm md:text-base">Tingkat Keberhasilan</p>
                         </div>
                     </div>
                 </div>
