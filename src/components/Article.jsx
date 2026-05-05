@@ -21,7 +21,7 @@ export default function Articles() {
 
                 const cat = CATEGORIES.find(c => c.id === selectedCategory)
                 const categoryParam = cat?.wpId ? `&categories=${cat.wpId}` : ''
-                const url = `http://mustikaapplecorner.com/wp-json/wp/v2/posts?_embed&per_page=6${categoryParam}`
+                const url = `https://mustikaapplecorner.com/wp-json/wp/v2/posts?_embed&per_page=6${categoryParam}`
 
                 const response = await fetch(url)
 
@@ -212,7 +212,7 @@ export default function Articles() {
                 {!loading && !error && articles.length > 0 && (
                     <div className="text-center mt-12">
                         <a
-                            href="http://localhost:8000"
+                            href="https://mustikaapplecorner.com/artikel"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-semibold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg"
