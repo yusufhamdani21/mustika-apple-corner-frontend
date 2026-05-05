@@ -8,6 +8,7 @@ import Footer from './components/Footer'
 import Articles from './components/Article'
 import Services from './components/Services'
 import FAQ from './components/Faq'
+import Gallery from './components/Gallery'
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -25,6 +26,7 @@ function App() {
       <Why />
       <Testi />
       <Services openModal={openModal} />
+      <Gallery />
       <Articles />
       <FAQ openModal={openModal} />
       <Footer openModal={openModal} />
