@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 
 // ── LOKASI ────────────────────────────────────────────────────
 const LOCATIONS = [
-    { id: 'bandung',    label: 'Bandung',    wa: '6285971777071', address: 'Jl. Raya Bandung No. 123' },
-    { id: 'jatinangor', label: 'Jatinangor', wa: '628989200075',  address: 'Jl. Raya Jatinangor No. 456' },
+    { id: 'bandung',    label: 'Bandung',    wa: '6285971777071', address: 'Jl. H. Kurdi 1 No.12 RT05, RW.01, Karasak, Astanaanyar, Bandung City, West Java 40243' },
+    { id: 'jatinangor', label: 'Jatinangor', wa: '628989200075',  address: 'Jl. Ir. Soekarno No.181Kec. Jatinangor, Kabupaten Sumedang, Jawa Barat 45363' },
 ]
 
 // ── LAYANAN ───────────────────────────────────────────────────
