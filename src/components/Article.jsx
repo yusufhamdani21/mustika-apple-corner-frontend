@@ -95,6 +95,7 @@ export default function Articles() {
                         <button
                             key={cat.id}
                             onClick={() => setSelectedCategory(cat.id)}
+                            aria-label='Category Filter Mustika Apple Corner'
                             className={`px-6 py-2 rounded-full font-semibold transition-all ${
                                 selectedCategory === cat.id
                                     ? 'bg-green-800 text-white'
@@ -214,6 +215,7 @@ export default function Articles() {
                     <div className="text-center mt-12">
                         <a
                             href="https://mustikaapplecorner.com/artikel"
+                            aria-label='Kunjungi Semua Artikel Mustika Apple Corner'
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-semibold px-8 py-4 rounded-lg transition-all transform hover:scale-105 shadow-lg"

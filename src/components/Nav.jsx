@@ -45,7 +45,7 @@ export default function Nav({ openModal }) {
         <header className="sticky top-0 flex justify-between items-center text-black py-3 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 bg-white drop-shadow-md z-50">
 
             {/* Logo */}
-            <a href="#hero" onClick={(e) => handleScroll(e, '#hero')} className="flex items-center gap-2 group z-50 flex-shrink-0">
+            <a href="#hero" aria-label='Lihat Banner Mustika Apple Corner' onClick={(e) => handleScroll(e, '#hero')} className="flex items-center gap-2 group z-50 flex-shrink-0">
                 <img
                     src={logo}
                     alt="logo"
@@ -75,6 +75,7 @@ export default function Nav({ openModal }) {
             {/* CTA Button - Desktop only */}
             <button
                 onClick={() => openModal()}
+                aria-label='Modal WhatsApp Pop Up Mustika'
                 className="hidden md:flex items-center gap-2 bg-green-800 text-white px-4 py-2 rounded-lg text-sm font-semibold hover:bg-green-900 transition-all flex-shrink-0"
             >
                 <i className="bx bxl-whatsapp text-lg"></i>

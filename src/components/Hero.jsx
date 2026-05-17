@@ -46,12 +46,13 @@ export default function Hero({ openModal }) {
                         <div className="flex flex-wrap gap-4 pt-2">
                             <button
                                 onClick={() => openModal('iPhone Repair')}
+                                aria-label='Modal WhatsApp Pop Up Mustika'
                                 className="flex items-center gap-2 bg-green-800 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-900 transition-all transform hover:scale-105 shadow-lg"
                             >
                                 <i className='bx bx-chat text-xl'></i>
                                 Konsultasi
                             </button>
-                            <button className="flex items-center gap-2 border-2 border-green-800 text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-800 hover:text-white transition-all">
+                            <button aria-label='Kunjungi Lokasi Mustika' className="flex items-center gap-2 border-2 border-green-800 text-green-800 px-8 py-3 rounded-lg font-semibold hover:bg-green-800 hover:text-white transition-all">
                                 <i className='bx bx-map text-xl'></i>
                                 Lihat Lokasi
                             </button>

@@ -510,6 +510,7 @@ export default function Services({ openModal }) {
                         <button
                             key={d.id}
                             onClick={() => setActiveDevice(d.id)}
+                            aria-label='Fitur Device Tab'
                             className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${activeDevice === d.id
                                     ? 'bg-green-800 text-white shadow-lg'
                                     : 'bg-white text-gray-600 border border-gray-200 hover:border-green-400'
@@ -536,10 +537,12 @@ export default function Services({ openModal }) {
 
                         <div className="flex border-b border-gray-100">
                             <button onClick={() => setActiveTab('part')}
+                                aria-label='Fitur active section'
                                 className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'part' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}>
                                 🔧 Ganti Part
                             </button>
                             <button onClick={() => setActiveTab('mesin')}
+                                aria-label='Fitur active section'
                                 className={`flex-1 py-3 text-sm font-bold transition-all ${activeTab === 'mesin' ? 'text-green-800 border-b-2 border-green-700 bg-green-50' : 'text-gray-500 hover:text-gray-700'}`}>
                                 ⚙️ Servis Mesin / IC
                             </button>
@@ -552,6 +555,7 @@ export default function Services({ openModal }) {
                                     <div className="flex flex-wrap gap-2">
                                         {SERIES_GROUPS.map((g, i) => (
                                             <button key={g.label} onClick={() => setActiveGroup(i)}
+                                                aria-label='Fitur active section'
                                                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeGroup === i ? 'bg-green-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {g.label}
                                             </button>
@@ -563,6 +567,7 @@ export default function Services({ openModal }) {
                                     <div className="flex flex-wrap gap-2">
                                         {PART_TABS.map(p => (
                                             <button key={p} onClick={() => setActivePart(p)}
+                                                aria-label='Fitur active section'
                                                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activePart === p ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {p}
                                             </button>
@@ -597,6 +602,7 @@ export default function Services({ openModal }) {
                                     <div className="flex flex-wrap gap-2">
                                         {IPHONE_MESIN.map(m => (
                                             <button key={m.nama} onClick={() => setActiveMesin(m.nama)}
+                                                aria-label='Fitur active section'
                                                 className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${activeMesin === m.nama ? 'bg-green-800 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
                                                 {m.nama.length > 30 ? m.nama.substring(0, 28) + '...' : m.nama}
                                             </button>
@@ -639,6 +645,7 @@ export default function Services({ openModal }) {
 
                         <div className="px-6 pb-6">
                             <button onClick={() => openModal('iPhone Repair')}
+                                aria-label='Modal WhatsApp Pop Up Mustika'
                                 className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
                                 <i className="bx bx-chat text-xl"></i>
                                 Konsultasi Gratis via WhatsApp
@@ -680,6 +687,7 @@ export default function Services({ openModal }) {
                                         <button
                                             key={m.model}
                                             onClick={() => setActiveMacbook(MACBOOK_MODELS.indexOf(m))}
+                                            aria-label='Modal WhatsApp Pop Up Mustika'
                                             className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all ${activeMacbook === MACBOOK_MODELS.indexOf(m)
                                                     ? 'bg-green-800 text-white'
                                                     : 'bg-gray-50 text-gray-700 hover:bg-green-50'
@@ -716,6 +724,7 @@ export default function Services({ openModal }) {
 
                         <div className="px-6 pb-6">
                             <button onClick={() => openModal('MacBook Service')}
+                                aria-label='Modal WhatsApp Pop Up Mustika'
                                 className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
                                 <i className="bx bx-chat text-xl"></i>
                                 Konsultasi Gratis via WhatsApp
@@ -752,6 +761,7 @@ export default function Services({ openModal }) {
                             <div className="p-6">
                                 <p className="text-xs text-gray-400 mb-4">* Harga tergantung kondisi device. Konsultasi gratis sebelum pengerjaan.</p>
                                 <button onClick={() => openModal(device.label + ' Service')}
+                                    aria-label='Modal WhatsApp Pop Up Mustika'
                                     className="flex items-center justify-center gap-2 w-full bg-green-800 hover:bg-green-900 text-white font-semibold py-3 rounded-xl transition-all">
                                     <i className="bx bx-chat text-xl"></i>
                                     Konsultasi Gratis via WhatsApp

@@ -68,6 +68,7 @@ export default function FAQ({ openModal }) {
                             >
                                 <button
                                     onClick={() => toggle(i)}
+                                    aria-label='Lihat List FAQ Mustika Apple Corner'
                                     className="w-full flex items-center justify-between gap-4 px-6 py-5 text-left"
                                 >
                                     <span className={`font-semibold text-base transition-colors ${openIndex === i ? 'text-green-800' : 'text-gray-800'
@@ -104,6 +105,7 @@ export default function FAQ({ openModal }) {
                         </p>
                         <button
                             onClick={() => openModal()}
+                            aria-label='Lihat dan Mulai Hubungi Mustika Apple Corner'
                             className="inline-flex items-center gap-2 bg-green-800 hover:bg-green-900 text-white font-semibold px-8 py-3 rounded-xl transition-all hover:scale-105"
                         >
                             <i className="bx bxl-whatsapp text-xl"></i>

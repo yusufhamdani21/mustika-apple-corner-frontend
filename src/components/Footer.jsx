@@ -82,6 +82,7 @@ export default function Footer({ openModal }) {
                                     </h4>
                                 </div>
                                 <iframe
+                                    title="Titik Koordinat Lokasi Mustika Apple Corner Service"
                                     src={loc.mapSrc}
                                     width="100%"
                                     height="300"
@@ -151,7 +152,7 @@ export default function Footer({ openModal }) {
                                 {quickLinks.map((link) => (
                                     <li key={link.name}>
                                         <a href={link.href}
-                                            className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group">
+                                            aria-label='Percepat Akses dengan Quick Links Mustika Apple Corner'  className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group">
                                             <i className="bx bx-chevron-right text-xl group-hover:translate-x-1 transition-transform"></i>
                                             {link.name}
                                         </a>
@@ -168,6 +169,7 @@ export default function Footer({ openModal }) {
                                     <li key={service}>
                                         <button
                                             onClick={() => openModal(service)}
+                                            aria-label='Lihat semua layanan Mustika Apple Corner'
                                             className="text-gray-400 hover:text-green-500 transition-colors flex items-center gap-2 group"
                                         >
                                             <i className="bx bx-wrench text-lg group-hover:rotate-12 transition-transform"></i>
@@ -194,6 +196,7 @@ export default function Footer({ openModal }) {
                                 />
                                 <button
                                     onClick={handleSubscribe}
+                                    aria-label='Subscribe Mustika Apple Corner Sekarang'
                                     disabled={subStatus === 'loading' || subStatus === 'success'}
                                     className="w-full bg-linear-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 disabled:opacity-60 text-white font-semibold py-3 rounded-lg transition-all duration-300"
                                 >
@@ -218,11 +221,12 @@ export default function Footer({ openModal }) {
                                 © 2025 Mustika Apple Corner. All rights reserved. | Certified by BNSP
                             </p>
                             <div className="flex flex-wrap justify-center gap-6 text-sm">
-                                <a href="#" className="text-gray-400 hover:text-green-500 transition-colors">Privacy Policy</a>
-                                <a href="#" className="text-gray-400 hover:text-green-500 transition-colors">Terms of Service</a>
-                                <a href="#" className="text-gray-400 hover:text-green-500 transition-colors">Sitemap</a>
+                                <a href="#" aria-label='Kunjungi Laman Privacy Policy Mustika Apple Corner' className="text-gray-400 hover:text-green-500 transition-colors">Privacy Policy</a>
+                                <a href="#" aria-label='Kunjungi Term of Service' className="text-gray-400 hover:text-green-500 transition-colors">Terms of Service</a>
+                                <a href="https://mustikaapplecorner.com/sitemap.xml" aria-label='Kunjungi Laman Sitemap Mustika Apple Corner' className="text-gray-400 hover:text-green-500 transition-colors">Sitemap</a>
                                 <a
                                     href="https://yusufhamdani.id"
+                                    aria-label='Kunjungi Profil Pembuat Website Mustika Apple Corner'
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-500 hover:text-green-400 transition-colors"
@@ -239,6 +243,7 @@ export default function Footer({ openModal }) {
             {/* WhatsApp Floating Button */}
             <button
                 onClick={() => openModal()}
+                aria-label='Tombol WhatsApp Mustika Apple Corner'
                 className="fixed bottom-6 right-6 w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-2xl z-50 transition-all duration-300 hover:scale-110 group"
             >
                 <i className="fab fa-whatsapp text-white text-3xl group-hover:rotate-12 transition-transform"></i>

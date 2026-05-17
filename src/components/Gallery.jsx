@@ -98,6 +98,7 @@ export default function Gallery() {
                         <button
                             key={f.id}
                             onClick={() => setFilter(f.id)}
+                            aria-label='Filter untuk tiap tab Gallery Mustika Apple Corner'
                             className={`flex items-center gap-2 px-5 py-2.5 rounded-full font-semibold text-sm transition-all ${
                                 filter === f.id
                                     ? 'bg-green-800 text-white shadow-lg'
@@ -187,6 +188,7 @@ export default function Gallery() {
                     {/* Close button */}
                     <button
                         onClick={closeLightbox}
+                        aria-label='LightBox untuk UI yang lebih baik Mustika Apple Corner'
                         className="absolute top-4 right-4 text-white/80 hover:text-white text-4xl z-10 transition-colors"
                     >
                         <i className="bx bx-x"></i>
@@ -209,10 +211,12 @@ export default function Gallery() {
                                 {photos.length > 1 && (
                                     <>
                                         <button onClick={prevPhoto}
+                                            aria-label='Navigasi Mustika Apple Corner'
                                             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all">
                                             <i className="bx bx-chevron-left text-3xl"></i>
                                         </button>
                                         <button onClick={nextPhoto}
+                                            aria-label='Navigasi Mustika Apple Corner'
                                             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 bg-white/10 hover:bg-white/20 text-white w-12 h-12 rounded-full flex items-center justify-center transition-all">
                                             <i className="bx bx-chevron-right text-3xl"></i>
                                         </button>

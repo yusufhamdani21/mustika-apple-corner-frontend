@@ -155,12 +155,14 @@ export default function Testimonial() {
                     {/* Nav buttons */}
                     <button
                         onClick={prev}
+                        aria-label='Navigasi Kami'
                         className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-6 bg-white hover:bg-green-800 text-gray-800 hover:text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 z-10"
                     >
                         <i className="bx bx-chevron-left text-3xl md:text-4xl"></i>
                     </button>
                     <button
                         onClick={next}
+                        aria-label='Navigasi Kami'
                         className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-6 bg-white hover:bg-green-800 text-gray-800 hover:text-white w-12 h-12 md:w-14 md:h-14 rounded-full shadow-xl flex items-center justify-center transition-all duration-300 z-10"
                     >
                         <i className="bx bx-chevron-right text-3xl md:text-4xl"></i>

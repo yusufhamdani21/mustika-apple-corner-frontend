@@ -226,7 +226,7 @@ export default function LeadModal({ isOpen, onClose, source = 'website', default
                             {step === 1 ? 'Pilih lokasi terdekat' : `Lokasi: ${location?.label}`}
                         </p>
                     </div>
-                    <button onClick={onClose} className="text-white/80 hover:text-white text-2xl leading-none transition-colors">
+                    <button onClick={onClose} aria-label='Modal WhatsApp Pop Up Mustika' className="text-white/80 hover:text-white text-2xl leading-none transition-colors">
                         <i className="bx bx-x"></i>
                     </button>
                 </div>
@@ -251,6 +251,7 @@ export default function LeadModal({ isOpen, onClose, source = 'website', default
                                 <button
                                     key={loc.id}
                                     onClick={() => { setLocation(loc); setStep(2) }}
+                                    aria-label='Modal WhatsApp Pop Up Mustika Lokasi Yang Dipilih'
                                     className="w-full flex items-center gap-4 p-4 rounded-2xl border-2 border-gray-100 hover:border-green-500 hover:bg-green-50 transition-all text-left group"
                                 >
                                     <div className="w-12 h-12 bg-green-100 group-hover:bg-green-200 rounded-xl flex items-center justify-center flex-shrink-0 transition-all">
@@ -350,6 +351,7 @@ export default function LeadModal({ isOpen, onClose, source = 'website', default
                                                         key={part}
                                                         type="button"
                                                         onClick={() => togglePart(part)}
+                                                        aria-label='Modal WhatsApp Pop Up Mustika'
                                                         className={`flex items-center gap-2 px-3 py-2 rounded-xl border-2 text-xs font-medium text-left transition-all ${
                                                             form.parts.includes(part)
                                                                 ? 'border-green-500 bg-green-50 text-green-800'
@@ -394,11 +396,13 @@ export default function LeadModal({ isOpen, onClose, source = 'website', default
                                     {/* Actions */}
                                     <div className="flex gap-3">
                                         <button type="button" onClick={() => setStep(1)}
+                                            aria-label='Modal WhatsApp Pop Up Mustika'
                                             className="flex items-center gap-1 px-4 py-3 rounded-xl border-2 border-gray-200 text-gray-600 text-sm font-semibold hover:border-gray-300 transition-all">
                                             <i className="bx bx-arrow-back"></i>
                                             Ganti
                                         </button>
                                         <button type="submit" disabled={status === 'loading'}
+                                            aria-label='Submit WhatsApp Pop Up Mustika'
                                             className="flex-1 flex items-center justify-center gap-2 bg-green-800 hover:bg-green-900 disabled:opacity-60 text-white font-bold py-3 rounded-xl transition-all text-sm">
                                             {status === 'loading' ? (
                                                 <><i className="bx bx-loader-alt animate-spin text-lg"></i>Mengirim...</>
