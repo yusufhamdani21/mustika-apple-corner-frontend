@@ -23,22 +23,22 @@ export default function Hero({ openModal }) {
                             {/* Operating Hours */}
                             <div className="flex items-center gap-3 text-lg sm:text-xl font-semibold text-gray-700">
                                 <i className='bx bx-time-five text-2xl text-green-800'></i>
-                                <span>Open Daily | 10.00 – 22.00</span>
+                                <span>Buka Setiap Hari | 10.00 – 22.00</span>
                             </div>
 
                             {/* Credentials */}
                             <div className="flex flex-wrap gap-4 text-gray-600">
                                 <div className="flex items-center gap-2">
                                     <i className='bx bx-certification text-xl text-green-700'></i>
-                                    <span>Certified by BNSP</span>
+                                    <span>Tersertifikasi oleh BNSP</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <i className='bx bx-calendar-check text-xl text-green-700'></i>
-                                    <span>12-Month Warranty</span>
+                                    <span>Garansi 12 Bulan</span>
                                 </div>
                                 <div className="flex items-center gap-2">
                                     <i className='bx bx-badge-check text-xl text-green-700'></i>
-                                    <span>Trusted Since 2013</span>
+                                    <span>Terpercaya Sejak 2013</span>
                                 </div>
                             </div>
                         </div>
