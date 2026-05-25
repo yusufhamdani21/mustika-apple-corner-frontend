@@ -225,13 +225,13 @@ export default function Footer({ openModal }) {
                                 <a href="#" aria-label='Kunjungi Term of Service' className="text-gray-400 hover:text-green-500 transition-colors">Terms of Service</a>
                                 <a href="https://mustikaapplecorner.com/sitemap.xml" aria-label='Kunjungi Laman Sitemap Mustika Apple Corner' className="text-gray-400 hover:text-green-500 transition-colors">Sitemap</a>
                                 <a
-                                    href="https://yusufhamdani.id"
+                                    href="https://hiwebr.com"
                                     aria-label='Kunjungi Profil Pembuat Website Mustika Apple Corner'
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-500 hover:text-green-400 transition-colors"
                                 >
-                                    Crafted by Yusuf Hamdani
+                                    Crafted by HiWebr
                                 </a>
                             </div>
                         </div>
