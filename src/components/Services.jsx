@@ -683,7 +683,7 @@ export default function Services({ openModal }) {
                             <div className="grid md:grid-cols-2 gap-4">
                                 {/* Model list */}
                                 <div className="space-y-1.5 max-h-96 overflow-y-auto pr-1">
-                                    {filteredMacbooks.map((m, i) => (
+                                    {filteredMacbooks.map((m) => (
                                         <button
                                             key={m.model}
                                             onClick={() => setActiveMacbook(MACBOOK_MODELS.indexOf(m))}
