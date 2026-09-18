@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://mustikaapplecorner.com/sitemap.xml
-Sitemap: https://mustikaapplecorner.com/wp-sitemap.xml
+Sitemap: https://mustikaapplecorner.com/artikel/sitemap_index.xml
